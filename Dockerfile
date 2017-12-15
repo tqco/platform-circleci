@@ -1,5 +1,6 @@
 FROM circleci/openjdk:8u151-jdk-node-browsers
 
+# gcloud installations command expect to run as root
 USER root
 
 RUN export DEBIAN_FRONTEND=noninteractive; \
@@ -19,4 +20,5 @@ RUN curl -fsSLO https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sd
 
 ENV PATH=/google-cloud-sdk/bin:$PATH;
 
-CMD ["/bin/bash"]
+# Revert to default user
+USER circleci
