@@ -18,7 +18,7 @@ RUN curl -fsSLO https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sd
     export PATH=/google-cloud-sdk/bin:$PATH; \
     gcloud --version;
 
-ENV PATH=/google-cloud-sdk/bin:$PATH;
+ENV PATH=/google-cloud-sdk/bin:$PATH
 
 # Revert to default user
 USER circleci
