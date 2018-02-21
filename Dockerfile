@@ -48,14 +48,7 @@ RUN apt-get update && \
   ./configure --enable-debug=no --without-python $1 && \
   make && \
   make install && \
-  ldconfig; \
-
-  # Clean up
-  apt-get remove -y automake curl build-essential && \
-  apt-get autoremove -y && \
-  apt-get autoclean && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*;
+  ldconfig;
 
 ## Revert to default user
 USER circleci
