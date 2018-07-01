@@ -6,10 +6,13 @@ USER root
 ## Install prerequisites
 RUN export DEBIAN_FRONTEND=noninteractive; \
 	apt-get update -y; \
-    apt-get install -y \
+    LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apt-utils \
     unzip \
-    curl;
+    curl \
+    libldap2-dev \
+    ldap-utils \
+    openssl;
 
 ## Install Google Cloud SDK
 RUN curl -fsSLO https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.zip; \
